@@ -5,8 +5,10 @@ const NewFriend = (props) => {
 
     const [newFriend, setNewFriend] = useState({ 
         credentials: { 
-            username: '', 
-            password: '' 
+            id: '',
+            name: '',
+            age: '',
+            email: ''
         }});
 
     const handleChange = e => {
@@ -24,9 +26,8 @@ const NewFriend = (props) => {
         axiosWithAuth()
             .post('/friends', newFriend.credentials)
             .then(res => {
-            localStorage.setItem('token', res.data.payload);
-            // redirect to the apps main page?
-            props.history.push('/protected');
+            // localStorage.setItem('token', res.data.payload);
+            return console.log(res);
             })
             .catch(err => console.log(err));
         };
@@ -35,14 +36,30 @@ const NewFriend = (props) => {
         <form onSubmit={addFriend}>
         <input
           type="text"
-          name="username"
-          value={newFriend.credentials.username}
+          name="id"
+          placeholder="id"
+          value={newFriend.credentials.id}
           onChange={handleChange}
         />
         <input
-          type="password"
-          name="password"
-          value={newFriend.credentials.password}
+          type="text"
+          name="name"
+          placeholder="name"
+          value={newFriend.credentials.name}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="age"
+          placeholder="age"
+          value={newFriend.credentials.age}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          value={newFriend.credentials.email}
           onChange={handleChange}
         />
         <button>addFriend</button>
