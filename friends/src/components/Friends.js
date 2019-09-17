@@ -39,7 +39,7 @@ class Friends extends React.Component {
         {this.state.friends.map(friend => {
           return (
             <div className="friend" key={friend.id}>
-              <p>{friend.name}</p>
+              <h2>{friend.name}</h2>
               <p>Age: {friend.age}</p>
               <p>Email: {friend.email}</p>
             </div>
