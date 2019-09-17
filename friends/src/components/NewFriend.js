@@ -5,7 +5,7 @@ const NewFriend = (props) => {
 
     const [newFriend, setNewFriend] = useState({ 
         credentials: { 
-            id: '',
+            // id: '',
             name: '',
             age: '',
             email: ''
@@ -26,7 +26,7 @@ const NewFriend = (props) => {
         axiosWithAuth()
             .post('/friends', newFriend.credentials)
             .then(res => {
-            // localStorage.setItem('token', res.data.payload);
+            props.getData();
             return console.log(res);
             })
             .catch(err => console.log(err));
@@ -34,13 +34,13 @@ const NewFriend = (props) => {
 
     return (
         <form onSubmit={addFriend}>
-        <input
+        {/* <input
           type="text"
           name="id"
           placeholder="id"
           value={newFriend.credentials.id}
           onChange={handleChange}
-        />
+        /> */}
         <input
           type="text"
           name="name"

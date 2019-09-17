@@ -46,7 +46,7 @@ class Friends extends React.Component {
           );
         })}
       </div>
-      <NewFriend />
+      <NewFriend getData={this.getData}/>
       </>
     );
   }
