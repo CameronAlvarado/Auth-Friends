@@ -1,7 +1,7 @@
 import React from 'react';
 // import moment from 'moment';
 import Loader from 'react-loader-spinner';
-
+import NewFriend from './NewFriend.js';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 class Friends extends React.Component {
@@ -28,6 +28,7 @@ class Friends extends React.Component {
   render() {
 
     return (
+      <>
       <div className="friends">
         {this.props.fetchingData && (
           <div className="key spinner">
@@ -45,6 +46,8 @@ class Friends extends React.Component {
           );
         })}
       </div>
+      <NewFriend />
+      </>
     );
   }
 }
