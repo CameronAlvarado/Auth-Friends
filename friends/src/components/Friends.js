@@ -28,17 +28,19 @@ class Friends extends React.Component {
   render() {
 
     return (
-      <div className="gas-prices">
-        {/* {this.props.fetchingData && (
+      <div className="friends">
+        {this.props.fetchingData && (
           <div className="key spinner">
             <Loader type="Puff" color="#204963" height="60" width="60" />
             <p>Loading Data</p>
           </div>
-        )} */}
+        )}
         {this.state.friends.map(friend => {
           return (
-            <div>
+            <div className="friend" key={friend.id}>
               <p>{friend.name}</p>
+              <p>Age: {friend.age}</p>
+              <p>Email: {friend.email}</p>
             </div>
           );
         })}
